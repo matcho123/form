@@ -27,11 +27,12 @@
               ><input type="checkbox" name="survey" value="NHS" /> NHS</label
             >
             <label
-              ><input type="checkbox" name="survey" value="GNHS" /> GNHS</label
+              ><input type="checkbox" name="survey" value="NZCVS" />
+              NZCVS</label
             >
             <label
-              ><input type="checkbox" name="survey" value="Māori Health" />
-              Māori Health</label
+              ><input type="checkbox" name="survey" value="MoTTS / NZHTS" />
+              MoTTS / NZHTS</label
             >
             <label
               ><input type="checkbox" name="survey" value="Other" />
@@ -39,118 +40,396 @@
             >
           </div>
         </fieldset>
-        <!-- Quantities -->
-        <div
-          id="quantitySection"
-          class="hidden quantity-wrapper"
-          aria-expanded="false"
-        >
-          <div class="section-title">Resource Quantities</div>
-          <p class="hint-text">Leave blank for items you do not need.</p>
-          <div class="grid">
-            <div class="item">
-              <label for="brochures">NZHS Brochures</label>
-              <input
-                id="brochures"
-                type="number"
-                name="brochures"
-                min="0"
-                max="2"
-              />
-              <p class="hint">Bundle of 50 (max 2)</p>
+
+        <!-- Quantity sections -->
+        <div id="quantitySections">
+          <!-- NHS Resources -->
+          <div class="quantity-wrapper hidden" data-survey="NHS">
+            <div class="section-title">Resource Quantities</div>
+            <p class="hint-text">Leave blank for items you do not need.</p>
+            <div class="grid">
+              <div class="item">
+                <label for="nhsBrochures">NZHS Brochures</label>
+                <input
+                  id="nhsBrochures"
+                  type="number"
+                  name="nhsBrochures"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundle of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nhsHousehold">Your Household is Important</label>
+                <input
+                  id="nhsHousehold"
+                  type="number"
+                  name="nhsHousehold"
+                  min="0"
+                  max="3"
+                />
+                <p class="hint">Bundle of 40 (max 3)</p>
+              </div>
+              <div class="item">
+                <label for="nhsThankYou">NZHS Thank You Cards</label>
+                <input
+                  id="nhsThankYou"
+                  type="number"
+                  name="nhsThankYou"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundle of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nhsInvite">NZHS Blank HH Invite Letters</label>
+                <input
+                  id="nhsInvite"
+                  type="number"
+                  name="nhsInvite"
+                  min="0"
+                  max="5"
+                />
+                <p class="hint">Bundle of 20 (max 5)</p>
+              </div>
+              <div class="item">
+                <label for="nhsMeasurement">NZHS Measurement Cards</label>
+                <input
+                  id="nhsMeasurement"
+                  type="number"
+                  name="nhsMeasurement"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundle of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nhsLaminated">Laminated Letter</label>
+                <input
+                  id="nhsLaminated"
+                  type="number"
+                  name="nhsLaminated"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">Max 1</p>
+              </div>
+              <div class="item">
+                <label for="nhsAlcohol">NZHS Alcohol Showcards</label>
+                <input
+                  id="nhsAlcohol"
+                  type="number"
+                  name="nhsAlcohol"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundle of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nhsColouringBooks">Colouring Books</label>
+                <input
+                  id="nhsColouringBooks"
+                  type="number"
+                  name="nhsColouringBooks"
+                  min="0"
+                  max="4"
+                />
+                <p class="hint">Bundle of 25 (max 4)</p>
+              </div>
+              <div class="item">
+                <label for="nhsColouringPencils">Colouring Pencils</label>
+                <input
+                  id="nhsColouringPencils"
+                  type="number"
+                  name="nhsColouringPencils"
+                  min="0"
+                  max="4"
+                />
+                <p class="hint">Bundle of 25 (max 4)</p>
+              </div>
             </div>
-            <div class="item">
-              <label for="householdImportant"
-                >Your Household is Important</label
-              >
-              <input
-                id="householdImportant"
-                type="number"
-                name="householdImportant"
-                min="0"
-                max="3"
-              />
-              <p class="hint">Bundle of 40 (max 3)</p>
+          </div>
+
+          <!-- NZCVS Resources -->
+          <div class="quantity-wrapper hidden" data-survey="NZCVS">
+            <div class="section-title">NZCVS Resource Quantities</div>
+            <p class="hint-text">Leave blank for items you do not need.</p>
+            <div class="grid">
+              <div class="item">
+                <label for="nzvsBrochures">NZCVS Brochures</label>
+                <input
+                  id="nzvsBrochures"
+                  type="number"
+                  name="nzvsBrochures"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundles of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsTranslated"
+                  >Do you require any translated brochures? *</label
+                >
+                <select id="nzvsTranslated" name="nzvsTranslated" required>
+                  <option value="">-- Please Select --</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="item">
+                <label for="nzvsHousehold"
+                  >NZCVS Your Household Is Important Cards</label
+                >
+                <input
+                  id="nzvsHousehold"
+                  type="number"
+                  name="nzvsHousehold"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundles of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsThankYou">NZCVS Thank You Cards</label>
+                <input
+                  id="nzvsThankYou"
+                  type="number"
+                  name="nzvsThankYou"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundles of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsInvite"
+                  >NZCVS Blank HH Invite Letters (aka Mailers)</label
+                >
+                <input
+                  id="nzvsInvite"
+                  type="number"
+                  name="nzvsInvite"
+                  min="0"
+                  max="5"
+                />
+                <p class="hint">Bundles of 20 (max 5)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsInfoBooklet"
+                  >NZCVS Victims of Crime Info Booklet</label
+                >
+                <input
+                  id="nzvsInfoBooklet"
+                  type="number"
+                  name="nzvsInfoBooklet"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundles of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsLaminated">NZCVS Laminated Invite Letter</label>
+                <input
+                  id="nzvsLaminated"
+                  type="number"
+                  name="nzvsLaminated"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">(max 1)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsIwi">NZCVS Laminated Iwi Showcard</label>
+                <input
+                  id="nzvsIwi"
+                  type="number"
+                  name="nzvsIwi"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">(max 1)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsCalendar">NZCVS Life Cycle Calendar</label>
+                <input
+                  id="nzvsCalendar"
+                  type="number"
+                  name="nzvsCalendar"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">(max 1)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsNotepads"
+                  >NZCVS Magnetic Notepads (Koha for respondents box of 50
+                  pads)</label
+                >
+                <input
+                  id="nzvsNotepads"
+                  type="number"
+                  name="nzvsNotepads"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">(max 1)</p>
+              </div>
+              <div class="item">
+                <label for="nzvsVideoCards"
+                  >Video Interview Appointment Cards</label
+                >
+                <input
+                  id="nzvsVideoCards"
+                  type="number"
+                  name="nzvsVideoCards"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">Bundle of 25 (max 1)</p>
+              </div>
             </div>
-            <div class="item">
-              <label for="thankYouCards">NZHS Thank You Cards</label>
-              <input
-                id="thankYouCards"
-                type="number"
-                name="thankYouCards"
-                min="0"
-                max="2"
-              />
-              <p class="hint">Bundle of 50 (max 2)</p>
-            </div>
-            <div class="item">
-              <label for="inviteLetters">NZHS Blank HH Invite Letters</label>
-              <input
-                id="inviteLetters"
-                type="number"
-                name="inviteLetters"
-                min="0"
-                max="5"
-              />
-              <p class="hint">Bundle of 20 (max 5)</p>
-            </div>
-            <div class="item">
-              <label for="measurementCards">NZHS Measurement Cards</label>
-              <input
-                id="measurementCards"
-                type="number"
-                name="measurementCards"
-                min="0"
-                max="2"
-              />
-              <p class="hint">Bundle of 50 (max 2)</p>
-            </div>
-            <div class="item">
-              <label for="laminatedLetter">Laminated Letter</label>
-              <input
-                id="laminatedLetter"
-                type="number"
-                name="laminatedLetter"
-                min="0"
-                max="1"
-              />
-              <p class="hint">Max 1</p>
-            </div>
-            <div class="item">
-              <label for="alcoholShowcards">NZHS Alcohol Showcards</label>
-              <input
-                id="alcoholShowcards"
-                type="number"
-                name="alcoholShowcards"
-                min="0"
-                max="2"
-              />
-              <p class="hint">Bundle of 50 (max 2)</p>
-            </div>
-            <div class="item">
-              <label for="colouringBooks">Colouring Books</label>
-              <input
-                id="colouringBooks"
-                type="number"
-                name="colouringBooks"
-                min="0"
-                max="4"
-              />
-              <p class="hint">Bundle of 25 (max 4)</p>
-            </div>
-            <div class="item">
-              <label for="colouringPencils">Colouring Pencils</label>
-              <input
-                id="colouringPencils"
-                type="number"
-                name="colouringPencils"
-                min="0"
-                max="4"
-              />
-              <p class="hint">Bundle of 25 (max 4)</p>
+          </div>
+
+          <!-- MoTTS / NZHTS Resources -->
+          <div class="quantity-wrapper hidden" data-survey="MoTTS / NZHTS">
+            <div class="section-title">MoTTS / NZHTS Resource Quantities</div>
+            <p class="hint-text">Leave blank for items you do not need.</p>
+            <div class="grid">
+              <div class="item">
+                <label for="mottsDiaries">MoTTS Travel Diaries</label>
+                <input
+                  id="mottsDiaries"
+                  type="number"
+                  name="mottsDiaries"
+                  min="0"
+                  max="4"
+                />
+                <p class="hint">Bundles of 50 (max 4)</p>
+              </div>
+              <div class="item">
+                <label for="mottsBrochures">MoTTS Brochures</label>
+                <input
+                  id="mottsBrochures"
+                  type="number"
+                  name="mottsBrochures"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundles of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="mottsHousehold"
+                  >MoTTS Let's Keep NZ Moving / Your Household is Important
+                  Cards</label
+                >
+                <input
+                  id="mottsHousehold"
+                  type="number"
+                  name="mottsHousehold"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundles of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="mottsInvite"
+                  >MoTTS Blank HH Invite Letters (aka Mailers)</label
+                >
+                <input
+                  id="mottsInvite"
+                  type="number"
+                  name="mottsInvite"
+                  min="0"
+                  max="4"
+                />
+                <p class="hint">Bundles of 25 (max 4)</p>
+              </div>
+              <div class="item">
+                <label for="mottsThankYou">MoTTS Thank You Cards</label>
+                <input
+                  id="mottsThankYou"
+                  type="number"
+                  name="mottsThankYou"
+                  min="0"
+                  max="2"
+                />
+                <p class="hint">Bundles of 50 (max 2)</p>
+              </div>
+              <div class="item">
+                <label for="mottsLaminated"
+                  >MoTTS Laminated Invite Letter</label
+                >
+                <input
+                  id="mottsLaminated"
+                  type="number"
+                  name="mottsLaminated"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">(max 1)</p>
+              </div>
+              <div class="item">
+                <label for="mottsPens">MoTTS Branded Pens (koha)</label>
+                <input
+                  id="mottsPens"
+                  type="number"
+                  name="mottsPens"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">Bag of 100 (max 1)</p>
+              </div>
+              <div class="item">
+                <label for="mottsAirFresheners"
+                  >MoTTS Branded Air Fresheners (koha)</label
+                >
+                <input
+                  id="mottsAirFresheners"
+                  type="number"
+                  name="mottsAirFresheners"
+                  min="0"
+                  max="1"
+                />
+                <p class="hint">Bag of 100 (max 1)</p>
+              </div>
+              <div class="item">
+                <label for="mottsTranslated"
+                  >Do you require any translated brochures? *</label
+                >
+                <select id="mottsTranslated" name="mottsTranslated" required>
+                  <option value="">-- Please Select --</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="item full-width">
+                <p class="hint-text">
+                  For the following MoTTS Items, please contact Lee Grant
+                  (lee.grant@ipsos.com)
+                </p>
+                <ul>
+                  <li>GPS loggers</li>
+                  <li>Cables/USB wall chargers</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <label for="mottsBusinessCards"
+                  >Do you require personalised business cards? *</label
+                >
+                <select
+                  id="mottsBusinessCards"
+                  name="mottsBusinessCards"
+                  required
+                >
+                  <option value="">-- Please Select --</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
+
         <!-- Personal details -->
         <div class="section-title">Your Details</div>
         <div class="form-group">
@@ -183,6 +462,7 @@
             placeholder="e.g., 021 000 0000"
           />
         </div>
+
         <!-- Address -->
         <div class="section-title">Delivery Address</div>
         <div class="form-group">
@@ -211,10 +491,12 @@
 
         <button type="submit">Submit Request</button>
       </form>
+
       <div id="successMessage" class="success hidden">
         Your request has been submitted successfully!
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

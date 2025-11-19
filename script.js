@@ -1,45 +1,50 @@
 const checkboxes = document.querySelectorAll("input[name='survey']");
-const quantitySection = document.getElementById("quantitySection");
+const quantitySections = document.querySelectorAll(".quantity-wrapper");
+const form = document.getElementById("resourceForm");
+const successMessage = document.getElementById("successMessage");
 
-// Show/hide quantity section
-checkboxes.forEach((cb) => {
-  cb.addEventListener("change", () => {
-    const anyChecked = [...checkboxes].some((x) => x.checked);
-
-    // Toggle visibility (your original behavior)
-    quantitySection.classList.toggle("hidden", !anyChecked);
-
-    // Smooth fade in/out effect
-    quantitySection.style.opacity = anyChecked ? "1" : "0";
+// Show/hide quantity sections based on survey selection
+checkboxes.forEach((box) => {
+  box.addEventListener("change", () => {
+    quantitySections.forEach((section) => {
+      const survey = section.getAttribute("data-survey");
+      section.classList.toggle(
+        "hidden",
+        !Array.from(checkboxes).some((cb) => cb.checked && cb.value === survey)
+      );
+    });
   });
 });
 
-// Enforce max values on number inputs
+// Enforce max/min values on number inputs
 document.querySelectorAll("input[type='number']").forEach((input) => {
   input.addEventListener("input", () => {
     if (input.value < 0) input.value = 0;
-    if (input.max && Number(input.value) > Number(input.max)) {
+    if (input.max && Number(input.value) > Number(input.max))
       input.value = input.max;
-    }
   });
 });
 
-// Handle form submission
-document.getElementById("resourceForm").addEventListener("submit", (e) => {
-  e.preventDefault();
+// Form submission
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-  const data = Object.fromEntries(new FormData(e.target));
-  data.surveys = [
-    ...document.querySelectorAll("input[name='survey']:checked"),
-  ].map((c) => c.value);
+  const formData = new FormData(form);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  data.surveys = Array.from(checkboxes)
+    .filter((cb) => cb.checked)
+    .map((cb) => cb.value);
 
   console.log("Submitted:", data);
 
-  document.getElementById("successMessage").classList.remove("hidden");
+  successMessage.classList.remove("hidden");
 
-  e.target.reset();
-  quantitySection.classList.add("hidden");
-
-  // Reset opacity when hidden
-  quantitySection.style.opacity = "0";
+  form.reset();
+  quantitySections.forEach((section) => section.classList.add("hidden"));
+  window.history.replaceState({}, document.title, window.location.pathname);
 });
