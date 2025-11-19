@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contractor Resources Request Form</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contractor Resources Request Form</h1>
+      <p class="subtitle">
+        Please complete the form below to request field resources.
+      </p>
+      <form id="resourceForm" novalidate>
+        <!-- Survey selection -->
+        <fieldset>
+          <legend class="section-title">
+            Which surveys would you like to order resources for? *
+          </legend>
+          <div id="surveyCheckboxes" class="checkbox-row">
+            <label
+              ><input type="checkbox" name="survey" value="NHS" /> NHS</label
+            >
+            <label
+              ><input type="checkbox" name="survey" value="GNHS" /> GNHS</label
+            >
+            <label
+              ><input type="checkbox" name="survey" value="Māori Health" />
+              Māori Health</label
+            >
+            <label
+              ><input type="checkbox" name="survey" value="Other" />
+              Other</label
+            >
+          </div>
+        </fieldset>
+        <!-- Quantities -->
+        <div
+          id="quantitySection"
+          class="hidden quantity-wrapper"
+          aria-expanded="false"
+        >
+          <div class="section-title">Resource Quantities</div>
+          <p class="hint-text">Leave blank for items you do not need.</p>
+          <div class="grid">
+            <div class="item">
+              <label for="brochures">NZHS Brochures</label>
+              <input
+                id="brochures"
+                type="number"
+                name="brochures"
+                min="0"
+                max="2"
+              />
+              <p class="hint">Bundle of 50 (max 2)</p>
+            </div>
+            <div class="item">
+              <label for="householdImportant"
+                >Your Household is Important</label
+              >
+              <input
+                id="householdImportant"
+                type="number"
+                name="householdImportant"
+                min="0"
+                max="3"
+              />
+              <p class="hint">Bundle of 40 (max 3)</p>
+            </div>
+            <div class="item">
+              <label for="thankYouCards">NZHS Thank You Cards</label>
+              <input
+                id="thankYouCards"
+                type="number"
+                name="thankYouCards"
+                min="0"
+                max="2"
+              />
+              <p class="hint">Bundle of 50 (max 2)</p>
+            </div>
+            <div class="item">
+              <label for="inviteLetters">NZHS Blank HH Invite Letters</label>
+              <input
+                id="inviteLetters"
+                type="number"
+                name="inviteLetters"
+                min="0"
+                max="5"
+              />
+              <p class="hint">Bundle of 20 (max 5)</p>
+            </div>
+            <div class="item">
+              <label for="measurementCards">NZHS Measurement Cards</label>
+              <input
+                id="measurementCards"
+                type="number"
+                name="measurementCards"
+                min="0"
+                max="2"
+              />
+              <p class="hint">Bundle of 50 (max 2)</p>
+            </div>
+            <div class="item">
+              <label for="laminatedLetter">Laminated Letter</label>
+              <input
+                id="laminatedLetter"
+                type="number"
+                name="laminatedLetter"
+                min="0"
+                max="1"
+              />
+              <p class="hint">Max 1</p>
+            </div>
+            <div class="item">
+              <label for="alcoholShowcards">NZHS Alcohol Showcards</label>
+              <input
+                id="alcoholShowcards"
+                type="number"
+                name="alcoholShowcards"
+                min="0"
+                max="2"
+              />
+              <p class="hint">Bundle of 50 (max 2)</p>
+            </div>
+            <div class="item">
+              <label for="colouringBooks">Colouring Books</label>
+              <input
+                id="colouringBooks"
+                type="number"
+                name="colouringBooks"
+                min="0"
+                max="4"
+              />
+              <p class="hint">Bundle of 25 (max 4)</p>
+            </div>
+            <div class="item">
+              <label for="colouringPencils">Colouring Pencils</label>
+              <input
+                id="colouringPencils"
+                type="number"
+                name="colouringPencils"
+                min="0"
+                max="4"
+              />
+              <p class="hint">Bundle of 25 (max 4)</p>
+            </div>
+          </div>
+        </div>
+        <!-- Personal details -->
+        <div class="section-title">Your Details</div>
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input
+            id="fullName"
+            type="text"
+            name="fullName"
+            required
+            placeholder="Enter your full name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            placeholder="example@domain.com"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Contact Number *</label>
+          <input
+            id="phone"
+            type="text"
+            name="phone"
+            required
+            placeholder="e.g., 021 000 0000"
+          />
+        </div>
+        <!-- Address -->
+        <div class="section-title">Delivery Address</div>
+        <div class="form-group">
+          <label for="street">Street Address *</label>
+          <input id="street" type="text" name="street" required />
+        </div>
+        <div class="form-group">
+          <label for="suburb">Suburb</label>
+          <input id="suburb" type="text" name="suburb" />
+        </div>
+        <div class="form-group">
+          <label for="city">Town / City *</label>
+          <input id="city" type="text" name="city" required />
+        </div>
+        <div class="form-group">
+          <label for="postcode">Post Code *</label>
+          <input id="postcode" type="text" name="postcode" required />
+        </div>
+        <div class="form-group">
+          <label for="instructions">Delivery Instructions</label>
+          <textarea id="instructions" name="instructions"></textarea>
+        </div>
+        <p class="hint-text">
+          Select at least one survey to show resource options.
+        </p>
+
+        <button type="submit">Submit Request</button>
+      </form>
+      <div id="successMessage" class="success hidden">
+        Your request has been submitted successfully!
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+body {
+  font-family: "Inter", sans-serif;
+  background: #f1f3fa;
+  margin: 0;
+  line-height: 1.55;
+}
+.container {
+  max-width: 880px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.subtitle {
+  color: #666;
+  margin-bottom: 50px;
+}
+.section-title {
+  border-bottom: 1px solid #e0e4ef;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  margin: 35px 0 15px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #333;
+}
+label {
+  font-weight: 500;
+  color: #333;
+}
+.checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-evenly;
+  padding-bottom: 15px;
+}
+.checkbox-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+#instructions {
+  height: 100px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 40px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.item {
+  margin-bottom: 22px;
+}
+.item label,
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+q .item input {
+  margin-bottom: 6px;
+  width: 100%;
+}
+.item .hint {
+  margin-top: 6px;
+}
+.quantity-wrapper {
+  background: #fafbff;
+  border: 1px solid #e4e6f0;
+  padding: 10px 40px;
+  border-radius: 10px;
+  margin: 10px;
+}
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8f9fc;
+  border: 1px solid #cfd4df;
+  transition: 0.2s;
+  resize: none;
+}
+
+input:hover,
+textarea:hover {
+  background: #f0f2fa;
+  cursor: pointer;
+}
+input:focus,
+textarea:focus {
+  border-color: #4a77e8;
+  box-shadow: 0 0 0 3px rgba(74, 119, 232, 0.2);
+  background: #fff;
+}
+button {
+  width: 100%;
+  background: #4a77e8;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px;
+  font-weight: 600;
+  transition: background 0.25s, transform 0.1s ease;
+}
+
+button:hover {
+  background: #3c62cc;
+  transform: translateY(-1px);
+}
+#quantitySection {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#quantitySection.hidden {
+  opacity: 0;
+}
+
+.success {
+  margin-top: 20px;
+  padding: 14px;
+  background: #e8f2ff;
+  color: #1f4a86;
+  border-left: 4px solid #4a77e8;
+  border-radius: 6px;
+  animation: fadeIn 0.4s ease;
+}
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- Mobile Adjustments --- */
+@media (max-width: 700px) {
+  .container {
+    padding: 25px;
+    margin: 20px;
+  }
+
+  .checkbox-row {
+    justify-content: flex-start;
+    gap: 10px 20px;
+  }
+
+  .section-title {
+    font-size: 17px;
+    margin-top: 25px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .quantity-wrapper {
+    padding: 20px;
+    margin: 15px 0;
+  }
+
+  input,
+  textarea {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* --- Extra Small Screens (phones under 450px) --- */
+@media (max-width: 450px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .checkbox-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .item .hint,
+  .hint-text {
+    font-size: 13px;
+  }
+
+  #quantitySection {
+    padding: 20px;
+  }
+}
+
+/* --- Fix checkbox label spacing on very small screens --- */
+@media (max-width: 380px) {
+  .checkbox-row label {
+    width: 100%;
+  }
+}
