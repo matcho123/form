@@ -245,6 +245,13 @@ select:focus {
     padding: 20px;
   }
 }
+.quantity-wrapper {
+  padding: 5px 50px;
+}
+input,
+textarea {
+  max-width: 90%;
+}
 
 /* --- Fix checkbox label spacing on very small screens --- */
 @media (max-width: 380px) {

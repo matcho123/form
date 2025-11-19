@@ -47,4 +47,14 @@ form.addEventListener("submit", (event) => {
   form.reset();
   quantitySections.forEach((section) => section.classList.add("hidden"));
   window.history.replaceState({}, document.title, window.location.pathname);
+
+  // Auto-fill fields from URL parameters
+  const params = new URLSearchParams(window.location.search);
+
+  const nameFromUrl = params.get("name");
+
+  if (nameFromUrl) {
+    const nameField = document.getElementById("fullName");
+    if (nameField) nameField.value = nameFromUrl;
+  }
 });
